@@ -1,0 +1,890 @@
+{
+	"info": {
+		"_postman_id": "98a6054e-a069-4ff6-a3ab-7d7a577ffeb6",
+		"name": "Platos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25498232"
+	},
+	"item": [
+		{
+			"name": "Crear un plato válido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.globals.set(\"plato_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Pancakes\",\r\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\r\n    \"precio\": 12000,\r\n    \"categoria\": \"plato_fuerte\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/dishes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un plato válido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Pancakes\",\r\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\r\n    \"precio\": 12000,\r\n    \"categoria\": \"plato_fuerte\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/dishes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "152"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"98-y6Ctd0HfZnEXdabLIwzajrKRDkU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:04:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Pancakes\",\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\n    \"precio\": 12000,\n    \"categoria\": \"plato_fuerte\",\n    \"id\": \"46434282-fcb5-45e8-851f-c62006a6a454\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un plato inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"La categoria del plato no es válida\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Pancakes\",\r\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\r\n    \"precio\": 12000,\r\n    \"categoria\": \"desayuno\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/dishes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un plato inválido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Pancakes\",\r\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\r\n    \"precio\": 12000,\r\n    \"categoria\": \"desayuno\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/dishes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "67"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"43-rcnjwebsdeIynmofCNNtUEl/4rs\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:06:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": \"La categoria del plato no es válida\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los platos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Number of dishes > 0\", function() {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.length).to.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/dishes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los platos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/dishes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "172"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ac-iPwa4BOkM6v8PbTAAEhHjMkceT0\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:07:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"46434282-fcb5-45e8-851f-c62006a6a454\",\n        \"nombre\": \"Pancakes\",\n        \"descripcion\": \"Deliciosos y suaves pancakes\",\n        \"precio\": 12000,\n        \"categoria\": \"plato_fuerte\",\n        \"restaurantes\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener un plato por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/dishes/{{plato_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"dishes",
+						"{{plato_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un plato por ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/dishes/{{plato_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"dishes",
+								"{{plato_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "170"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"aa-SLWYDRe06gw5EuH6YB/NZqzUovM\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:08:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"46434282-fcb5-45e8-851f-c62006a6a454\",\n    \"nombre\": \"Pancakes\",\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\n    \"precio\": 12000,\n    \"categoria\": \"plato_fuerte\",\n    \"restaurantes\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un plato por ID que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El plato con el id dado no se encontró\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/dishes/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"dishes",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un plato por ID que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/dishes/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"dishes",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"46-R5RaB8d9a4AxZr+pYDdJrA4CRzE\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:09:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El plato con el id dado no se encontró\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un plato",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Pancakes 2\",\r\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\r\n    \"precio\": 12000,\r\n    \"categoria\": \"plato_fuerte\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/dishes/{{plato_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"dishes",
+						"{{plato_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar un plato",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Pancakes 2\",\r\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\r\n    \"precio\": 12000,\r\n    \"categoria\": \"plato_fuerte\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/dishes/{{plato_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"dishes",
+								"{{plato_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "154"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9a-bD2OI3yBtWvqDtWX8j81JuY0VFQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:11:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"46434282-fcb5-45e8-851f-c62006a6a454\",\n    \"nombre\": \"Pancakes 2\",\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\n    \"precio\": 12000,\n    \"categoria\": \"plato_fuerte\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un plato con un ID que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El plato con el id dado no se encontró\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Pancakes 3\",\r\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\r\n    \"precio\": 12000,\r\n    \"categoria\": \"plato_fuerte\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/dishes/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"dishes",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar un plato con un ID que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Pancakes 3\",\r\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\r\n    \"precio\": 12000,\r\n    \"categoria\": \"plato_fuerte\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/dishes/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"dishes",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"46-R5RaB8d9a4AxZr+pYDdJrA4CRzE\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:12:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El plato con el id dado no se encontró\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar un plato por su ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/dishes/{{plato_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"dishes",
+						"{{plato_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un plato por su ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/dishes/{{plato_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"dishes",
+								"{{plato_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:14:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Eliminar un plato con un ID que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El plato con el id dado no se encontró\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/dishes/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"dishes",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un plato con un ID que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/dishes/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"dishes",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"46-R5RaB8d9a4AxZr+pYDdJrA4CRzE\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:15:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El plato con el id dado no se encontró\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

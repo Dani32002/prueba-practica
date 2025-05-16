@@ -1,0 +1,890 @@
+{
+	"info": {
+		"_postman_id": "5fd5521c-9b24-468f-9baf-0bd609c23a2a",
+		"name": "Restaurantes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25498232"
+	},
+	"item": [
+		{
+			"name": "Crear un restaurante válido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.globals.set(\"restaurante_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Doni's\",\r\n    \"direccion\": \"Calle 153 #73-20\",\r\n    \"tipoCocina\": \"internacional\",\r\n    \"paginaWeb\": \"http://donis.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/restaurants",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un restaurante válido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Doni's\",\r\n    \"direccion\": \"Calle 153 #73-20\",\r\n    \"tipoCocina\": \"internacional\",\r\n    \"paginaWeb\": \"http://donis.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/restaurants",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "154"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9a-FExr0Js8dYWX1iEOtKw7czeASVE\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 04:38:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Doni's\",\n    \"direccion\": \"Calle 153 #73-20\",\n    \"tipoCocina\": \"internacional\",\n    \"paginaWeb\": \"http://donis.com\",\n    \"id\": \"79ee2172-a0d0-4ced-9178-fff316a2bf99\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un restaurante inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El tipo de cocina no es válido\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Doni's\",\r\n    \"direccion\": \"Calle 153 #73-20\",\r\n    \"tipoCocina\": \"desayuno\",\r\n    \"paginaWeb\": \"http://donis.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/restaurants",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un restaurante inválido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Doni's\",\r\n    \"direccion\": \"Calle 153 #73-20\",\r\n    \"tipoCocina\": \"desayuno\",\r\n    \"paginaWeb\": \"http://donis.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/restaurants",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "62"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3e-+2LhRUWvpv5SWkpsnTVDXuvqrRk\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 04:43:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": \"El tipo de cocina no es válido\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los restaurantes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Number of restaurants > 0\", function() {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.length).to.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/restaurants",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los restaurantes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/restaurants",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "168"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a8-INF7ioGM2Qy0k9Of9OhMYdC9tfY\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 04:46:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"79ee2172-a0d0-4ced-9178-fff316a2bf99\",\n        \"nombre\": \"Doni's\",\n        \"direccion\": \"Calle 153 #73-20\",\n        \"tipoCocina\": \"internacional\",\n        \"paginaWeb\": \"http://donis.com\",\n        \"platos\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener un restaurante por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/restaurants/{{restaurante_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurante_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un restaurante por ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/restaurants/{{restaurante_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurante_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "166"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a6-rgk4EsS4Scv+SGZTrAiuhLQryQg\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 04:47:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"f21827a5-5d3c-44a3-aff2-67eb5aaf1a5f\",\n    \"nombre\": \"Doni's\",\n    \"direccion\": \"Calle 153 #73-20\",\n    \"tipoCocina\": \"internacional\",\n    \"paginaWeb\": \"http://donis.com\",\n    \"platos\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un  restaurante por un ID que no  existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El restaurante con el id dado no se encontró\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/restaurants/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un restaurante por un ID que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/restaurants/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "76"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4c-Fjl9tZ1JzhgnsjB1LZo35RqAF5M\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 04:50:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El restaurante con el id dado no se encontró\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un restaurante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Doni's 2\",\r\n    \"direccion\": \"Calle 153 #73-20\",\r\n    \"tipoCocina\": \"internacional\",\r\n    \"paginaWeb\": \"http://donis2.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/restaurants/{{restaurante_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurante_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar un restaurante",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Doni's 2\",\r\n    \"direccion\": \"Calle 153 #73-20\",\r\n    \"tipoCocina\": \"internacional\",\r\n    \"paginaWeb\": \"http://donis2.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/restaurants/{{restaurante_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurante_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "157"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9d-PupGQgP0wUKHiksntF8xGlFLHOo\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 04:52:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"f21827a5-5d3c-44a3-aff2-67eb5aaf1a5f\",\n    \"nombre\": \"Doni's 2\",\n    \"direccion\": \"Calle 153 #73-20\",\n    \"tipoCocina\": \"internacional\",\n    \"paginaWeb\": \"http://donis2.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un restaurante con un ID que no existe.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El restaurante con el id dado no se encontró\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Doni's 3\",\r\n    \"direccion\": \"Calle 153 #73-20\",\r\n    \"tipoCocina\": \"internacional\",\r\n    \"paginaWeb\": \"http://donis2.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/restaurants/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar un restaurante con un ID que no existe.",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Doni's 3\",\r\n    \"direccion\": \"Calle 153 #73-20\",\r\n    \"tipoCocina\": \"internacional\",\r\n    \"paginaWeb\": \"http://donis2.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/restaurants/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "76"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4c-Fjl9tZ1JzhgnsjB1LZo35RqAF5M\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 04:55:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El restaurante con el id dado no se encontró\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar un restaurante por su ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/restaurants/{{restaurante_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurante_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un restaurante por su ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/restaurants/{{restaurante_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurante_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 04:57:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Eliminar un restaurante con un ID que no existe.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El restaurante con el id dado no se encontró\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/restaurants/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un restaurante por su ID que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/restaurants/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "76"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4c-Fjl9tZ1JzhgnsjB1LZo35RqAF5M\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 04:59:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El restaurante con el id dado no se encontró\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

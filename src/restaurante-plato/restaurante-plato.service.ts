@@ -125,7 +125,7 @@ export class RestaurantePlatoService {
                     id: dishes[i].id
                 },
             });
-
+            
             if (!plato) {
                 throw new BusinessLogicException("El plato con el id dado no se encontró", BusinessError.NOT_FOUND);
             }

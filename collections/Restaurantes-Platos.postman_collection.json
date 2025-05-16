@@ -1,0 +1,1142 @@
+{
+	"info": {
+		"_postman_id": "01eaefec-f000-4dc4-aa1e-cd19ba635309",
+		"name": "Restaurantes-Platos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25498232"
+	},
+	"item": [
+		{
+			"name": "Crear un plato válido Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.globals.set(\"plato_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Pancakes\",\r\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\r\n    \"precio\": 12000,\r\n    \"categoria\": \"plato_fuerte\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/dishes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un plato válido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Pancakes\",\r\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\r\n    \"precio\": 12000,\r\n    \"categoria\": \"plato_fuerte\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/dishes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "152"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"98-y6Ctd0HfZnEXdabLIwzajrKRDkU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:04:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Pancakes\",\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\n    \"precio\": 12000,\n    \"categoria\": \"plato_fuerte\",\n    \"id\": \"46434282-fcb5-45e8-851f-c62006a6a454\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un plato válido Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.globals.set(\"plato_id_2\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Pancakes ultimate\",\r\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\r\n    \"precio\": 12000,\r\n    \"categoria\": \"plato_fuerte\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/dishes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un plato válido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Pancakes\",\r\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\r\n    \"precio\": 12000,\r\n    \"categoria\": \"plato_fuerte\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/dishes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "152"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"98-y6Ctd0HfZnEXdabLIwzajrKRDkU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:04:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Pancakes\",\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\n    \"precio\": 12000,\n    \"categoria\": \"plato_fuerte\",\n    \"id\": \"46434282-fcb5-45e8-851f-c62006a6a454\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un restaurante válido Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.globals.set(\"restaurante_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Doni's\",\r\n    \"direccion\": \"Calle 153 #73-20\",\r\n    \"tipoCocina\": \"internacional\",\r\n    \"paginaWeb\": \"http://donis.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/restaurants",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un restaurante válido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Doni's\",\r\n    \"direccion\": \"Calle 153 #73-20\",\r\n    \"tipoCocina\": \"internacional\",\r\n    \"paginaWeb\": \"http://donis.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/restaurants",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "154"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9a-FExr0Js8dYWX1iEOtKw7czeASVE\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 04:38:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Doni's\",\n    \"direccion\": \"Calle 153 #73-20\",\n    \"tipoCocina\": \"internacional\",\n    \"paginaWeb\": \"http://donis.com\",\n    \"id\": \"79ee2172-a0d0-4ced-9178-fff316a2bf99\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Asociar un plato a un restaurante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes/{{plato_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurante_id}}",
+						"dishes",
+						"{{plato_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar un plato a un restaurante",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes/{{plato_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurante_id}}",
+								"dishes",
+								"{{plato_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "318"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"13e-SYj0CmK5hKP8Ovnyh5tqCxHaSsc\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:22:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"e0eed82f-09ce-48bc-bc34-8896c203ad06\",\n    \"nombre\": \"Doni's\",\n    \"direccion\": \"Calle 153 #73-20\",\n    \"tipoCocina\": \"internacional\",\n    \"paginaWeb\": \"http://donis.com\",\n    \"platos\": [\n        {\n            \"id\": \"d71d1ae7-8891-48e9-810f-41841bf62724\",\n            \"nombre\": \"Pancakes\",\n            \"descripcion\": \"Deliciosos y suaves pancakes\",\n            \"precio\": 12000,\n            \"categoria\": \"plato_fuerte\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Asociar un plato que no existe a un restaurante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El plato con el id dado no se encontró\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurante_id}}",
+						"dishes",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar un plato que no existe a un restaurante",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurante_id}}",
+								"dishes",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"46-R5RaB8d9a4AxZr+pYDdJrA4CRzE\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:23:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El plato con el id dado no se encontró\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los platos que están en un restaurante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Number of dishes > 0\", function() {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.length).to.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurante_id}}",
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los platos que están en un restaurante",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurante_id}}",
+								"dishes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "326"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"146-A8Rud2cdAbGBTgmp9tB32VV/qlc\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:25:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"d71d1ae7-8891-48e9-810f-41841bf62724\",\n        \"nombre\": \"Pancakes\",\n        \"descripcion\": \"Deliciosos y suaves pancakes\",\n        \"precio\": 12000,\n        \"categoria\": \"plato_fuerte\",\n        \"restaurantes\": [\n            {\n                \"id\": \"e0eed82f-09ce-48bc-bc34-8896c203ad06\",\n                \"nombre\": \"Doni's\",\n                \"direccion\": \"Calle 153 #73-20\",\n                \"tipoCocina\": \"internacional\",\n                \"paginaWeb\": \"http://donis.com\"\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener un plato asociado a un restaurante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes/{{plato_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurante_id}}",
+						"dishes",
+						"{{plato_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un plato asociado a un restaurante",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes/{{plato_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurante_id}}",
+								"dishes",
+								"{{plato_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "324"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"144-mYbsComV8X7HL59dmg/AnOJ1Osw\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:27:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"d71d1ae7-8891-48e9-810f-41841bf62724\",\n    \"nombre\": \"Pancakes\",\n    \"descripcion\": \"Deliciosos y suaves pancakes\",\n    \"precio\": 12000,\n    \"categoria\": \"plato_fuerte\",\n    \"restaurantes\": [\n        {\n            \"id\": \"e0eed82f-09ce-48bc-bc34-8896c203ad06\",\n            \"nombre\": \"Doni's\",\n            \"direccion\": \"Calle 153 #73-20\",\n            \"tipoCocina\": \"internacional\",\n            \"paginaWeb\": \"http://donis.com\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un plato que no esté asociado a un restaurante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"    pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El plato con el id dado no está asociado al restaurante\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes/{{plato_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurante_id}}",
+						"dishes",
+						"{{plato_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un plato que no esté asociado a un restaurante",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes/{{plato_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurante_id}}",
+								"dishes",
+								"{{plato_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "87"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"57-OmU2wteGCc5bXzJOcugODYKKtlU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:30:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"El plato con el id dado no está asociado al restaurante\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar los platos que están asociados a un restaurante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"{{plato_id_2}}\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurante_id}}",
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar los platos que están asociados a un restaurante",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"{{plato_id_2}}\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurante_id}}",
+								"dishes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "327"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"147-kH+da5/MJivIGLM46VpltcZCkrs\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:33:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"e0eed82f-09ce-48bc-bc34-8896c203ad06\",\n    \"nombre\": \"Doni's\",\n    \"direccion\": \"Calle 153 #73-20\",\n    \"tipoCocina\": \"internacional\",\n    \"paginaWeb\": \"http://donis.com\",\n    \"platos\": [\n        {\n            \"id\": \"d995f4ab-7898-4a13-a0a7-689dfd766751\",\n            \"nombre\": \"Pancakes ultimate\",\n            \"descripcion\": \"Deliciosos y suaves pancakes\",\n            \"precio\": 12000,\n            \"categoria\": \"plato_fuerte\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar los platos asociados a un restaurante, con un plato inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El plato con el id dado no se encontró\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurante_id}}",
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar los platos asociados a un restaurante, con un plato inexistente",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurante_id}}",
+								"dishes"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"46-R5RaB8d9a4AxZr+pYDdJrA4CRzE\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:42:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El plato con el id dado no se encontró\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar un plato previamente asociado a un restaurante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes/{{plato_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurante_id}}",
+						"dishes",
+						"{{plato_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un plato previamente asociado a un restaurante",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes/{{plato_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurante_id}}",
+								"dishes",
+								"{{plato_id_2}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 May 2025 05:45:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Eliminar un plato que no estaba previamente asociado a un restaurante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"    pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El plato con el id dado no está asociado al restaurante\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/restaurants/{{restaurante_id}}/dishes/{{plato_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurante_id}}",
+						"dishes",
+						"{{plato_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}
